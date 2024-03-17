@@ -10,7 +10,7 @@ export default function Dictionary(props) {
   let [loaded, setLoaded] = useState(false);
   let [photos, setPhotos] = useState(null);
 
-  function handleDictionaryResponse(response) {
+  function handleDictionResponse(response) {
     setResults(response.data[0]);
   }
 
@@ -20,12 +20,12 @@ export default function Dictionary(props) {
 
   function search() {
     let apiUrl = `https://api.dictionaryapi.dev/api/v2/entries/en_US/${keyword}`;
-    axios.get(apiUrl).then(handleDictionaryResponse);
+    axios.get(apiUrl).then(handleDictionResponse);
 
     let pexelsApiKey =
       "6RP4FW3XRDH6HmOekDMaiaOvnroXoiHuve5xsXbJEHFUH8aRKP31ADls";
-    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=12`;
-    let headers = { Authorization: `Bearer ${pexelsApiKey}` };
+    let pexelsApiUrl = `https://api.pexels.com/v1/search?query=${keyword}&per_page=9`;
+    let headers = { Authorization: `${pexelsApiKey}` };
     axios.get(pexelsApiUrl, { headers: headers }).then(handlePexelsResponse);
   }
 
@@ -47,7 +47,7 @@ export default function Dictionary(props) {
     return (
       <div className="Dictionary">
         <section>
-          <h1>What word do you want to search?</h1>
+          <h1>What word do you want to find the meaning of?</h1>
           <form onSubmit={handleSubmit}>
             <input
               type="search"
@@ -55,7 +55,7 @@ export default function Dictionary(props) {
               defaultValue={props.defaultKeyword}
             />
           </form>
-          <div className="hint">type a word in the search bar</div>
+          <div className="hint">Type anything in the search bar </div>
         </section>
         <Results results={results} />
         <Photos photos={photos} />
