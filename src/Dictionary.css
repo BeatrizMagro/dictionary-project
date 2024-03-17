@@ -2,6 +2,7 @@
   font-size: 16px;
   font-weight: bold;
   margin-bottom: 20px;
+  color: #3b5916;
 }
 
 .Dictionary section {
@@ -17,7 +18,7 @@
   padding: px 5px;
   border: 1px solid #1f2e20;
   border-radius: 12px;
-  color: #1f3421;
+  color: #3b5916;
   font-size: 15px;
   text-align: center;
   font-weight: bold;
@@ -26,4 +27,5 @@
 .Dictionary .hint {
   font-size: 10px;
   margin-top: 7px;
+  color: #3b5916;
 }
